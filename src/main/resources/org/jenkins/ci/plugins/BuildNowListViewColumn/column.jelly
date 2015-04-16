@@ -1,0 +1,14 @@
+
+
+<?jelly escape-by-default="true"?>
+<j:jelly xmlns:j="jelly:core">
+  <td>
+    <j:if test="${job.hasPermission(job.BUILD)}">
+
+     <form action="job/${job.name}/build?delay=0sec" method="post" title="${%BuildNowListViewColumn.Configure.Title}">
+       <input type="image" src="${imagesURL}/${subIconSize}/setting.png" alt="${%BuildNowListViewColumn.Configure.Title}" />
+     </form>
+
+    </j:if>
+  </td>
+</j:jelly>
