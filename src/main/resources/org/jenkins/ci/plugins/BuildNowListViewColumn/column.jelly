@@ -5,8 +5,12 @@
   <td>
     <j:if test="${job.hasPermission(job.BUILD)}">
 
-     <form action="job/${job.name}/build?delay=0sec" method="post" title="${%BuildNowListViewColumn.Configure.Title}">
-       <input type="image" src="${imagesURL}/${subIconSize}/setting.png" alt="${%BuildNowListViewColumn.Configure.Title}" />
+     <form method="post" action="job/${job.name}/build?delay=0sec">
+
+       <input type="hidden" name="statusCode" value="303" />
+       <input type="hidden" name="redirectTo" value="/job/${job.name}" />
+       <input type="image" src="${imagesURL}/${subIconSize}/next.png" alt="${%BuildNowListViewColumn.Configure.Title}" />
+       <input type="hidden" name="json" value='{"parameters":{}, "statusCode": "303", "redirectTo": "/job/${job.name}"}' />
      </form>
 
     </j:if>
