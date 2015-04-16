@@ -1,0 +1,31 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+<script type="text/javascript">
+  document.observe("dom:loaded", function() {
+    $$(".build-now-with-defaults").each(function(element) {
+    element.observe('click', function(e) {
+      el = e.findElement();
+
+      name = encodeURIComponent(el.readAttribute('data-job-name'));
+      job_url = "/job/" + name
+      build_url = job_url + "/buildWithParameters?delay=0sec"
+
+      new Ajax.Request(build_url, {
+        method:'post',
+        onSuccess: function(transport) {
+          window.location.href = job_url
+        },
+        onFailure: function() { alert('Failed to launch build?!'); }
+      });
+      })
+    });
+  });
+</script>
+
+<style>
+img.build-now-with-defaults:hover{
+  cursor: pointer;
+}
+</style>
+
+</j:jelly>
