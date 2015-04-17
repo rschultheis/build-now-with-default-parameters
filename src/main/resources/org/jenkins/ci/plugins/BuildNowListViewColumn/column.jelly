@@ -10,7 +10,7 @@
 
              <img class='build-now-with-defaults parameterized'
              data-job-name="${job.name}"
-             src="${imagesURL}/${subIconSize}/next.png"
+             src="${rootURL}/plugin/build-now-with-default-parameters-plugin/icons/buildnow.png"
              alt="${%BuildNowListViewColumn.Configure.Title}" />
 
         </j:when>
@@ -19,7 +19,7 @@
 
              <img class='build-now-with-defaults non-parameterized'
              data-job-name="${job.name}"
-             src="${imagesURL}/${subIconSize}/next.png"
+             src="${rootURL}/plugin/build-now-with-default-parameters-plugin/icons/buildnow.png"
              alt="${%BuildNowListViewColumn.Configure.Title}" />
 
 
