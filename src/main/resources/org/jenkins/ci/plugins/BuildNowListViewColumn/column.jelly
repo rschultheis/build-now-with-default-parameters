@@ -3,13 +3,28 @@
 <?jelly escape-by-default="true"?>
 <j:jelly xmlns:j="jelly:core">
   <td>
-    <j:if test="${job.hasPermission(job.BUILD)}">
+    <j:if test="${job.buildable and job.hasPermission(job.BUILD)}">
+      <j:choose>
 
-    <img class='build-now-with-defaults'
-         data-job-name="${job.name}"
-         src="${imagesURL}/${subIconSize}/next.png"
-         alt="${%BuildNowListViewColumn.Configure.Title}" />
+        <j:when test="${job.parameterized}">
 
+             <img class='build-now-with-defaults parameterized'
+             data-job-name="${job.name}"
+             src="${imagesURL}/${subIconSize}/next.png"
+             alt="${%BuildNowListViewColumn.Configure.Title}" />
+
+        </j:when>
+
+        <j:otherwise>
+
+             <img class='build-now-with-defaults non-parameterized'
+             data-job-name="${job.name}"
+             src="${imagesURL}/${subIconSize}/next.png"
+             alt="${%BuildNowListViewColumn.Configure.Title}" />
+
+
+        </j:otherwise>
+      </j:choose>
     </j:if>
   </td>
 </j:jelly>
